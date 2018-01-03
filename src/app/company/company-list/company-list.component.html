@@ -1,0 +1,8 @@
+<h1>Company List</h1>
+<a class="btn btn-info" [routerLink]="['/company-edit','new']">Add</a>
+<ul class="list-group">
+    <li class="list-group-item-success list-group-item-heading">List Of Companies</li>
+    <li class="list-group-item" *ngFor="let company of companies$ | async ">{{company | json}}{{company.company.name}} <a class="btn btn-primary pull-right" [routerLink]="['/company-edit',company.key]">Edit</a> </li>
+
+
+</ul>
