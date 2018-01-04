@@ -10,7 +10,10 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { AppComponent } from './app.component';
 import { CompanyEditComponent } from './company/company-edit/company-edit.component';
 import { CompanyService } from './company/company.service';
+import { ContactService} from './contact/contact.service';
 import { CompanyListComponent } from './company/company-list/company-list.component';
+import { ContactListComponent } from './contact/contact-list/contact-list.component';
+import { ContactEditComponent } from './contact/contact-edit/contact-edit.component';
 import { Action } from 'rxjs/scheduler/Action';
 
 
@@ -27,7 +30,9 @@ export const firebaseConfig = {
 const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo: 'company-list'},
     {path : 'company-list', component: CompanyListComponent},
-    { path: 'company-edit/:id', component: CompanyEditComponent }
+    { path: 'company-edit/:id', component: CompanyEditComponent },
+    {path: 'contact-list', component: ContactListComponent},
+    {path : 'contact-edit/:id', component: ContactEditComponent}
 
 ];
 
@@ -35,7 +40,9 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     CompanyEditComponent,
-    CompanyListComponent
+    ContactEditComponent,
+    CompanyListComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,7 @@ const routes: Routes = [
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes)
   ],
-  providers: [CompanyService],
+  providers: [CompanyService, ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

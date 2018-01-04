@@ -1,0 +1,17 @@
+<h1>Contact Edit</h1>
+<div class="container-fluid">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="text" class="form-control" name="contact" id="contact" value='{{(contact$|async)?.name}}' [(ngModel)]="contactData.name" />
+        </div>
+        <div class="form-group">
+            <label for="phone">Company</label>
+            <input type="text" class="form-control" name="company" id="company" value='{{(contact$|async)?.company}}' [(ngModel)]='contactData.company' />
+
+        </div>
+        <button type="button" class="btn btn-primary" (click)="saveContact(contactData)">Save</button>
+        <button type="button" class="btn btn-default" (click)="editContact()">Edit</button>
+    </form>
+
+</div>
